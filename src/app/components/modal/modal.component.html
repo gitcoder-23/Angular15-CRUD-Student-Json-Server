@@ -1,0 +1,102 @@
+<!-- Button trigger modal -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Employee</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="studentFrom">
+          <div class="mb-3">
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label for="studentName" class="form-label">Student Name</label>
+                <input
+                  formControlName="studentName"
+                  type="studentName"
+                  class="form-control"
+                  id="studentName"
+                  name="studentName"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email address</label>
+                <div class="input-group">
+                  <div class="input-group-text">@</div>
+                  <input
+                    formControlName="email"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-2">
+              <div class="col-md-6">
+                <label for="className" class="form-label">Class</label>
+                <input
+                  formControlName="className"
+                  type="className"
+                  class="form-control"
+                  id="className"
+                  name="className"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="mobile" class="form-label">Mobile</label>
+                <div class="input-group">
+                  <div class="input-group-text">
+                    <i class="bi bi-phone"></i>
+                  </div>
+                  <input
+                    formControlName="mobile"
+                    type="mobile"
+                    class="form-control"
+                    id="mobile"
+                    name="mobile"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <h5 style="color: red" *ngIf="success == false">{{ message }}</h5>
+        <h5 style="color: green" *ngIf="success == true">{{ message }}</h5>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary" (click)="addStudent()">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

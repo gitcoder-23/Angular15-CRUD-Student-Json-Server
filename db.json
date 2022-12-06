@@ -1,0 +1,39 @@
+{
+  "students": [
+    {
+      "studentName": "I Mobile",
+      "email": "Mobile",
+      "className": "Brand New",
+      "mobile": "I Mobile App",
+      "id": "fdsgdfgdf-12341-5t4r5t-6rry-fdsfgfhyhvcb"
+    },
+    {
+      "id": "bdf21f82-262d-4d7d-b81c-e0e869d4627c",
+      "studentName": "Margo",
+      "email": "Shop",
+      "className": "Second Hand",
+      "mobile": "Green Margoo Shop"
+    },
+    {
+      "id": "8a492881-4117-4f57-9f90-df47bff97ad9",
+      "studentName": "LG TV",
+      "email": "TV",
+      "className": "Brand New",
+      "mobile": "FHD LED Smart TV"
+    },
+    {
+      "id": "9c67c166-11eb-4c33-a8e9-76a18555985e",
+      "studentName": "Mango",
+      "email": "Fruit",
+      "className": "Brand New",
+      "mobile": "Fresh Fruit"
+    },
+    {
+      "studentName": "Raj Kumar",
+      "email": "raj@yahoo.com",
+      "className": "VI",
+      "mobile": "7894561235",
+      "id": "04N7f1n"
+    }
+  ]
+}
