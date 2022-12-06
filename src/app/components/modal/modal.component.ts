@@ -23,8 +23,17 @@ export class ModalComponent implements OnInit {
   studentList: StudentModel[] = [];
 
   ngOnInit(): void {
-    this.studentFormValidation();
     this.getAllStudent();
+    this.studentFormValidation();
+  }
+
+  // Get All Students
+  getAllStudent() {
+    this.api.getStudents().subscribe((res: any) => {
+      // console.log('getResponse->', res);
+
+      this.studentList = res;
+    });
   }
 
   studentFormValidation() {
@@ -37,19 +46,19 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  addStudent() {
-    console.log('addProduct->', this.studentFrom.value);
+  async addStudent() {
+    this.getAllStudent();
+    // console.log('addProduct->', this.studentFrom.value);
     this.studentObj.studentName = this.studentFrom.value.studentName;
     this.studentObj.email = this.studentFrom.value.email;
     this.studentObj.className = this.studentFrom.value.className;
     this.studentObj.mobile = this.studentFrom.value.mobile;
     if (this.studentFrom.valid) {
+      this.getAllStudent();
       this.api.postStudent(this.studentObj).subscribe({
         // Next
         next: (res: any) => {
           console.log('res->', res);
-          this.getAllStudent();
-          alert('Student added success');
           this.message = 'Student added success';
           this.success = true;
 
@@ -61,7 +70,6 @@ export class ModalComponent implements OnInit {
         // Error
         error: (error: any) => {
           console.log('res->', error);
-          alert('Student submit error');
           this.message = 'Something went wrong';
           this.success = false;
           setTimeout(() => {
@@ -72,7 +80,6 @@ export class ModalComponent implements OnInit {
         complete: () => {
           console.log('complete');
           this.getAllStudent();
-          this.studentFrom.reset();
         },
       });
     } else {
@@ -82,15 +89,6 @@ export class ModalComponent implements OnInit {
         this.message = '';
       }, 2000);
     }
-  }
-
-  // Get All Students
-  getAllStudent() {
-    this.api.getStudents().subscribe((res: any) => {
-      // console.log('getResponse->', res);
-
-      this.studentList = res;
-    });
   }
 
   //
