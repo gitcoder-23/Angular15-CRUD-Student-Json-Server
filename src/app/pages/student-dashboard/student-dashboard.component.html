@@ -1,5 +1,13 @@
 <app-header></app-header>
 <div class="mt-4">
+  <h5 style="color: red; text-align: center" *ngIf="success == false">
+    {{ message }}
+  </h5>
+  <h5 style="color: green; text-align: center" *ngIf="success == true">
+    {{ message }}
+  </h5>
+  <h5 *ngIf="!studentList" style="color: red">No data found!</h5>
+
   <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -12,6 +20,9 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td class="text-center" *ngIf="studentList.length == 0">No data.</td>
+      </tr>
       <tr *ngFor="let students of studentList; let indx = index">
         <th scope="row">{{ indx + 1 }}</th>
         <td>{{ students.studentName }}</td>
@@ -27,7 +38,12 @@
             class="btn btn-info me-2"
           />
 
-          <input type="button" value="Delete" class="btn btn-danger" />
+          <input
+            (click)="deleteStudent(students.id)"
+            type="button"
+            value="Delete"
+            class="btn btn-danger"
+          />
         </td>
       </tr>
     </tbody>

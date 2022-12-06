@@ -81,15 +81,23 @@ export class ApiService {
   }
 
   // Update Single Student
-  deleteSingleStudent(id: string) {
-    const apiResponse = this._http
-      .delete<any>(`${this.BaseUrl}/students/${id}`)
-      .pipe(
-        map((res: any) => {
-          console.log('delete-res->', res);
 
-          return res;
-        })
-      );
-  }
+  deleteSingleStudent = (id: string) => {
+    const apiPostResponse = this._http.delete<any>(
+      `${this.BaseUrl}/students/${id}`
+    );
+    console.log('apiDeleteResponse->', apiPostResponse);
+    return apiPostResponse;
+  };
+  // deleteSingleStudent(id: string) {
+  //   const apiResponse = this._http
+  //     .delete<any>(`${this.BaseUrl}/students/${id}`)
+  //     .pipe(
+  //       map((res: any) => {
+  //         console.log('delete-res->', res);
+
+  //         return res;
+  //       })
+  //     );
+  // }
 }

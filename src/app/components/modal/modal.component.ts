@@ -48,14 +48,15 @@ export class ModalComponent implements OnInit {
         // Next
         next: (res: any) => {
           console.log('res->', res);
-
+          this.getAllStudent();
           alert('Student added success');
-          this.message = 'Product added success';
+          this.message = 'Student added success';
           this.success = true;
+
+          this.studentFrom.reset();
           setTimeout(() => {
             this.message = '';
           }, 2000);
-          this.studentFrom.reset();
         },
         // Error
         error: (error: any) => {
@@ -70,9 +71,8 @@ export class ModalComponent implements OnInit {
         // Complete
         complete: () => {
           console.log('complete');
-          // getStudent();
-          this.studentFrom.reset();
           this.getAllStudent();
+          this.studentFrom.reset();
         },
       });
     } else {
